@@ -1,0 +1,100 @@
+# follow instructions on 
+# https://stackoverflow.com/questions/21297139/how-do-you-sign-a-certificate-signing-request-with-your-certification-authority/21340898#21340898
+# for creation and signing of certificates
+
+
+openssl req -x509 -config conf_files/openssl-ca.cnf -newkey rsa:4096 -sha256 -nodes -out cacert.pem -outform PEM
+
+output: After the command executes, cacert.pem will be your certificate for CA operations, and cakey.pem will be the private key. 
+Recall the private key does not have a password or passphrase.
+
+#### check the created ca file cacert.pem
+
+ openssl x509 -in cacert.pem -text -noout
+
+ openssl x509 -purpose -in cacert.pem -inform PEM
+
+
+################ create a certificate request (csr) ###########################
+
+ openssl req -config conf_files/openssl-server.cnf -newkey rsa:2048 -sha256 -nodes -out servercert.csr -outform PEM
+
+ output: request in servercert.csr and a private key in serverkey.pem.
+
+
+
+################ sign with ca ###########################
+
+Third, touch index.txt and serial.txt:
+
+touch index.txt serial.txt
+
+echo '01' > serial.txt
+
+openssl ca -config conf_files/openssl-ca.cnf -policy signing_policy -extensions signing_req -out servercert.pem -infiles servercert.csr
+
+
+output: 
+
+fter the command executes, you will have a freshly minted server certificate in servercert.pem. 
+The private key was created earlier and is available in serverkey.pem.
+
+############## add the cacert.pem as CA authority in browsers such as chrome ########################
+
+#add the cacert.pem as CA authority in browsers such as chrome
+
+#######################################################################################################################
+
+
+openssl     req \
+            -x509 \
+            -newkey rsa:4096 \
+            -sha256 \
+            -days 3650 \
+            -nodes \
+            -keyout nginx.key \
+            -out nginx.crt \
+            -subj "/C=CA/ST=ON/L=Brampton/O=HGILL/CN=webapp.org" 
+
+
+
+
+
+openssl req -x509 -out nginx.crt -keyout nginx.key \
+  -newkey rsa:4096 -nodes -sha256 -days 3650\
+  -subj '/CN=webapp.org' -extensions EXT -config <( \
+   printf "[dn]\nCN=webapp.org\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:webapp.org,,DNS:webapp,IP:127.0.0.1\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+
+
+openssl req -x509 -out nginx.crt -keyout nginx.key \
+  -newkey rsa:4096 -nodes -sha256 -days 3650 \
+  -subj '/CN=webapp.org' -extensions EXT -config ssl.conf
+
+# ssl.conf
+
+[dn]
+CN=webapp.org
+
+[req]
+distinguished_name = dn
+
+[EXT]
+
+subjectAltName=DNS:webapp.org,,DNS:webapp,IP:127.0.0.1
+keyUsage=digitalSignature
+extendedKeyUsage=serverAuth
+
+
+
+
+
+
+
+
+
+######## command for checking the validity of the created certificate###############
+
+openssl x509 -text -noout -in nginx.crt
+
+# for checking ca certificate
+openssl x509 -purpose -in cacert.pem -inform PEM

@@ -1,0 +1,101 @@
+# notes: 
+#
+# https://github.com/jaredpalmer/razzle/issues/1385
+#
+# razzle application suffers from flash of unstyled component when 
+# run in developer mode ie npm start
+# in production mode ie npm run build  && npm run start:production
+# this is not an issue
+
+npm i express-session --save
+npm install @material-ui/core --save
+
+Roboto font
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+Material Icon
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+SVG Icon
+npm install @material-ui/icons
+
+## support for react redux
+
+## for razzle server
+npm i react-redux qs serialize-javascript redux-thunk redux-saga dotenv dotenv-expand
+
+## for application
+npm i bcryptjs pouchdb pouchdb-upsert cloudinary-core lodash
+npm i blob-util uuid react-spring styled-components
+
+
+
+## commands for starting and stoping the application
+
+# from application root folder containing package.json, run app in dev mode
+
+$ npm start 
+
+# from application root folder containing package.json, run the build
+
+$ npm run build
+
+# from application root folder containing package.json, run the application in production mode
+# running application in this mode will take care of FOUC problem wit the application
+
+$ npm run start:prod
+
+
+since the project is now hosted on git. pull the project from the git repository with 
+the following command. 
+Please make sure to remove the the node_modules folder downloaded from git repository
+and the install a fresh copy by running npm install.
+
+git clone https://github.com/sanchil/agt1.git
+
+# screen commands to effectively run the application in background
+
+$screen
+$cd agt1
+$rm -rf node_modules
+$npm install --build-from-resource
+$npm audit fix
+$npm upgrade
+$npm run build
+$npm run start:prod
+# to break from screen 
+cntrl a + d 
+
+
+## for db
+
+- ensure the src/consts/hgill_consts.js
+  has dburl and sessionurl pointed to https://h-gill.com
+
+- ensure that the src/consts/hgill_consts.js file is renamed to index.js and mv the existing
+  index.js to index.js.bkp
+
+- ensure that the cors on couchdb server is set to https://h-gill.com and https://www.h-gill.com
+
+- create a hgilldb database with command
+
+curl -X PUT https://admin:admin@h-gill.com/hgilldb
+
+- ensure to a design document to couchdb as below. 
+
+{
+  "_id": "_design/types",
+  "_rev": "3-4eff9ce40e2140c0440e9fd0dd479fff",
+  "views": {
+    "users": {
+      "map": "function (doc) {\n  if(doc.type==='USER')\n  emit(doc._id, 1);\n}"
+    },
+    "contact": {
+      "map": "function (doc) {\n   if(doc.type==='CONTACT')\n  emit(doc._id, 1);\n}"
+    },
+    "homes": {
+      "map": "function (doc) {\n   if(doc.type==='HOME')\n  emit(doc._id, 1);\n}"
+    }
+  },
+  "language": "javascript"
+}
+

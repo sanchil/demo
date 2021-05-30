@@ -1,0 +1,7 @@
+r = 253  g=224 b=148 alpha=255 index=231
+
+fillcolor : hex: #fde094
+--color: #000000
+
+potrace lwa_icon.pbm -b svg -s --fillcolor=#fde094 --color=#000000 --opttolerance 0.6 -a 255 -o lwa_icon.svg
+

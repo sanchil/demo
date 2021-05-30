@@ -1,0 +1,77 @@
+map $http_origin $current_origin {
+        default http://h-gill.com;
+}
+
+upstream redisbackend {
+  #       server backend1.example.com weight=5;
+         server 3.23.179.255:6379 weight=5;
+   #      server 172.31.44.58:6379 weight=5;
+   #       server redisvr.org:6379     max_fails=3 fail_timeout=30s;
+   #      server unix:/tmp/backend3;
+          keepalive 1024;
+   #      server backup1.example.com  backup;
+  }
+
+
+upstream couchdbsvr {
+      #   server 3.133.5.70:5984 weight=5;
+          server 172.31.44.58:5984     max_fails=3 fail_timeout=30s;
+   #       server redisvr.org:6379     max_fails=3 fail_timeout=30s;
+   #      server unix:/tmp/backend3;
+          keepalive 1024;
+   #      server backup1.example.com  backup;
+  }
+
+
+server {
+
+	listen 80;	
+	listen [::]:80;
+	server_name h-gill.com www.h-gill.com 3.23.179.255;
+
+	location / {
+
+		  if ($request_method = 'OPTIONS') {
+        		add_header 'Access-Control-Allow-Origin' '$current_origin';
+        		add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        		#
+        		# Custom headers and headers various browsers *should* be OK with but aren't
+        		#
+        		add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
+       			#
+       	 		# Tell client that this pre-flight info is valid for 20 days
+        		#
+        		add_header 'Access-Control-Max-Age' 1728000;
+        		add_header 'Content-Type' 'text/plain; charset=utf-8';
+        		add_header 'Content-Length' 0;
+       	 		return 204;
+     		}
+
+		#rewrite /e/(.*) /$1 break;
+ 		proxy_pass http://172.31.17.103:3000/;
+		proxy_redirect          off;
+		proxy_set_header        Host            $host;
+		proxy_set_header        X-Real-IP       $remote_addr;
+		proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+		client_max_body_size    10m;
+		client_body_buffer_size 128k;
+		proxy_connect_timeout   90;
+		proxy_send_timeout      90;
+		proxy_read_timeout      90;
+		proxy_buffers           32 4k;
+
+
+	}
+
+#        location / {
+#		root html;
+#		index index.html index.htm;
+#	}
+
+	error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+
+}
