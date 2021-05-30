@@ -135,5 +135,5 @@ As a consequence, let’s say that you have committed a new file to your Git rep
 
 git remote -v
 
-git branch # check current branches
-git branch -r # remtoe branches
+git branch      # check current branches
+git branch -r   # remote branches
