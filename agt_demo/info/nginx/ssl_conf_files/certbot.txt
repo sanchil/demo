@@ -1,0 +1,8 @@
+# command for certificate
+sudo certbot certonly --nginx
+
+certificate path
+/etc/letsencrypt/live/h-gill.com/fullchain.pem
+
+certificate key
+/etc/letsencrypt/live/h-gill.com/privkey.pem
