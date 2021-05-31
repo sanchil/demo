@@ -5,7 +5,6 @@ COPY public ./public
 COPY src ./src
 RUN npm install && echo "y" | npm run build
 COPY build ./build
-#RUN echo "y" | npm run build
 EXPOSE 3000
 ENV RAZZLE_PUBLIC_DIR=./public
 ENV NODE_ENV=production
