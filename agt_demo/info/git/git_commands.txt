@@ -137,3 +137,7 @@ git remote -v
 
 git branch # check current branches
 git branch -r # remtoe branches
+
+# show only unmerged files
+
+git diff --name-only --diff-filter=U
