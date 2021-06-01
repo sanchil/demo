@@ -34,7 +34,8 @@ export const CLOUDINARY_API = 'https://api.cloudinary.com/v1_1';
 export const CLOUDINARY_URL = 'https://res.cloudinary.com';
 export const CLOUDINARY_KEY = '274252481156554';
 export const CLOUDINARY_SEC = 'HFkBZmRgbxYUOL2EB6OOXrAF4bs';
-export const CLOUDINARY_DB = 'hgillimg';
+export const CLOUDINARY_DB = process.env.CLOUDINARY_DB;
+//export const CLOUDINARY_DB = 'hgillimg';
 export const CLOUDINARY_UPLOAD_PRESET = 'itxglhuu';
 export const CLOUDINARY_URL_DB = CLOUDINARY_URL+'/'+CLOUDINARY_DB;
 
@@ -44,6 +45,7 @@ export const CLOUDINARY_URL_DB = CLOUDINARY_URL+'/'+CLOUDINARY_DB;
     api_secret: CLOUDINARY_SEC,
     secure:true
 } */
+
 
 export const CLOUDINARY_CONFIG = {
     cloud_name: CLOUDINARY_DB,
