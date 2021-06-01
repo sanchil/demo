@@ -7,7 +7,7 @@ import CONST from '../consts';
 
 PouchDB.plugin(p);
 
-console.log("Process db url",process.env.DBURL);
+//console.log("Process db url",JSON.stringify(process.env));
 
 export const db = ((url,uid,pwd)=>{
     const opts = {
@@ -19,9 +19,9 @@ export const db = ((url,uid,pwd)=>{
         skip_setup:true,
     }
     return new PouchDB(opts);
-    })('http://webapp.org/db/hgilldb',"admin","admin");
+    //})('http://webapp.org/db/hgilldb',"admin","admin");
+    })(process.env.DBURL+"","admin","admin");
 
-//})(process.env.DBURL,"admin","admin");
 
     //})('https://webapp.org/db/hgilldb',"admin","admin");
 

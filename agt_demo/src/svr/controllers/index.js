@@ -34,7 +34,6 @@ const jsScriptTagsFromAssets = (assets, entrypoint, extra = '') => {
 
 
 
-
 const handleMain = async (req, res) => {
 
   const sheets = new ServerStyleSheets();

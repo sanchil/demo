@@ -4,8 +4,8 @@ import CONST from '../../app/consts';
 
 export const mainTemplate = (inp) => {
 
-    return (
-        `<!doctype html>
+  return (
+    `<!doctype html>
     <html lang="">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -49,7 +49,7 @@ export const mainTemplate = (inp) => {
 
 
         <script type="text/javascript" nonce="agtsessionabcxyz" >
-                window.agtSessData = ${serialize(inp.agtSessData)} 
+          window.agtSessData = ${serialize(inp.agtSessData)} 
         </script>
         <script>
         window.__PRELOADED_STATE__ = ${serialize(inp.finalState)}
@@ -57,5 +57,5 @@ export const mainTemplate = (inp) => {
         ${inp.jsScriptTagsFromAssets(inp.assets, 'client', ' defer crossorigin')}
     </body>
 </html>`
-    )
+  )
 }

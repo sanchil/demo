@@ -5,10 +5,13 @@ import redis from 'redis';
 import redisstore from 'connect-redis';
 import dotenv from 'dotenv'
 import dotenvExpand from 'dotenv-expand';
+import path from 'path';
 
 let myEnv = dotenv.config()
 dotenvExpand(myEnv);
 
+console.log("Current path : ",path.resolve(process.env.RAZZLE_PUBLIC_DIR));
+//console.log("Client path : ",process.env.CLIENT_PUBLIC_PATH);
 
 
 const SessionStore = redisstore(session);
