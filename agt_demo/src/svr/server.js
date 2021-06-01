@@ -10,9 +10,9 @@ import path from 'path';
 let myEnv = dotenv.config()
 dotenvExpand(myEnv);
 
-console.log("Current path : ",path.resolve(process.env.RAZZLE_PUBLIC_DIR));
+//console.log("Current path : ",path.resolve(process.env.RAZZLE_PUBLIC_DIR));
 //console.log("Client path : ",process.env.CLIENT_PUBLIC_PATH);
-
+//console.log("Public path : ",process.env.PUBLIC_PATH);
 
 const SessionStore = redisstore(session);
 const redisClient = redis.createClient({
