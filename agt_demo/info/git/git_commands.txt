@@ -130,7 +130,6 @@ As a consequence, let’s say that you have committed a new file to your Git rep
 
 
 
-
 # check current remote
 
 git remote -v
@@ -141,3 +140,17 @@ git branch -r # remtoe branches
 # show only unmerged files
 
 git diff --name-only --diff-filter=U
+
+# undo a merge
+
+git log --oneline
+git revert -m 1 [commit-hash]
+
+or 
+
+git reflog
+git reset --merge a9fdeb5
+
+or
+
+git reset --merge HEAD~1
