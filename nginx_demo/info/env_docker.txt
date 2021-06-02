@@ -10,6 +10,11 @@ EXPOSE 80 443
 
 
 
+## pls ensure that all of these applications are running on a common network 
+# for eg redis-net. create redis-net as below.
+
+docker network create --driver bridge redis-net
+
 ### build command
 docker build --no-cache -t sanchil/ng_demo:0.1 .
 
