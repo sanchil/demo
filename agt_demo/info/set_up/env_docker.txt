@@ -1,0 +1,26 @@
+FROM node:14
+WORKDIR /app
+COPY package*.json ./
+COPY public ./public
+COPY src ./src
+RUN npm install && echo "y" | npm run build
+EXPOSE 3000
+ENV RAZZLE_PUBLIC_DIR=./build/public
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=3000
+ENV REDIS_HOST=redis
+ENV REDIS_PORT=6379
+CMD ["node", "build/server.js"]
+
+
+### build command
+docker build --no-cache -t sanchil/agt_demo:0.1 .
+
+
+### run command
+# pls ensure that the app name is "app" as that is what is hard coded in 
+# ng.conf file of sanchil/ng_demo:0.1 nginx docker image.
+
+docker run --name app --network redis-net -dp 3000:3000 sanchil/agt_demo:0.1
+
