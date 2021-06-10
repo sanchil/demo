@@ -15,3 +15,8 @@ The aim of this project is to bring together reasonably functional version of ap
 
 
 ## Kubernetes Build
+
+## Author
+
+* **Sandeep L Chiluveru** 
+* [ sandeepnet@aol.com ]
