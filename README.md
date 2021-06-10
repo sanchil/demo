@@ -1,4 +1,4 @@
-# Demo: A Functional ReactJs Application Stack
+# Demo: A Kubernetes application demonstrating deployments and wiring up of various applications
 
 The aim of this project is to bring together reasonably functional version of applications and string them up together on bare metal and cloud native environments. This project aims to demonstrate the wiring up and building pipelines between components.
 
