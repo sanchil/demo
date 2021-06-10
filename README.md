@@ -9,3 +9,12 @@ This project contains the following stack
 - OAuth 2.0/OpenID integrations to Google, FaceBook, Twitter and Amazon
 - Admin Module
 
+
+## Bare Metal Build
+
+
+## Docker Build
+
+
+## Kubernetes Build
+
