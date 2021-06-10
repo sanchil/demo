@@ -15,19 +15,3 @@ The aim of this project is to bring together reasonably functional version of ap
 
 
 ## Kubernetes Build
-
-
-## Data Repository
-- CouchDB
-- FireStore
-
-## Cache
-- Redis
-
-## Edge Proxy
-- Contour/Envoy Proxy
-- Nginx
-
-## API Gateway
-- Express-Gateway
-
