@@ -1,12 +1,13 @@
 # Demo: A Functional ReactJs Application Stack
 
-This project contains the following stack
+This is a fully functional Reactjs application based on Server Side Rendering server RazzleJS, which is similar in its goals and objectives to NextJS. While SPA are great for some uses SSR applications lend well to areas where there is a greater need for security. However with server less architectures SPA may see a better traction in coming years. This full stack application demonstrate the following.
 
 ## Full Stack Application
 - FrontEnd: ReactJS
 - Server: RazzleJS
+- Styling: Material-UI
 - State Management (Redux, Saga, useHooks)
-- Identity Managemanagement ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
+- Identity Management ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
 
 
 ## Bare Metal Build
