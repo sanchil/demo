@@ -23,6 +23,25 @@ This project contains the following stack
 - Identity Managemanagement ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
 
 
+## Data Repository
+- CouchDB
+- FireStore
+
+## Cache
+- Redis
+
+## Edge Proxy
+- Contour/Envoy Proxy
+- Nginx
+
+## API Gateway
+- Express-Gateway
+
+
+
+## Builds
+
+Builds up applications and wires them them together
 
 ## Bare Metal Build
 
@@ -99,18 +118,3 @@ spec:
 status: {}
 
 ```
-
-## Data Repository
-- CouchDB
-- FireStore
-
-## Cache
-- Redis
-
-## Edge Proxy
-- Contour/Envoy Proxy
-- Nginx
-
-## API Gateway
-- Express-Gateway
-
