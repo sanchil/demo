@@ -1,0 +1,28 @@
+FROM nginx:1.19.10
+# RUN adduser --system --no-create-home --group nginx
+RUN rm /etc/nginx/conf.d/default.conf && mkdir -p /etc/nginx/ssl
+COPY conf.d /etc/nginx/conf.d
+COPY ssl/server.key /etc/nginx/ssl
+COPY ssl/server.crt /etc/nginx/ssl
+COPY nginx.conf /etc/nginx
+EXPOSE 80 443
+#CMD ["nginx"]
+
+
+
+## pls ensure that all of these applications are running on a common network 
+# for eg redis-net. create redis-net as below.
+
+docker network create --driver bridge redis-net
+
+### build command
+docker build --no-cache -t sanchil/ng_demo:0.1 .
+
+
+### run command
+# pls ensure that the app name of the react demo server is "app" 
+# as that is what is hard coded in 
+# ng.conf file of sanchil/ng_demo:0.1 nginx docker image.
+
+docker run --name ng --network redis-net -d -p 443:443 -p 80:80 sanchil/ng_demo:0.1
+
