@@ -4,12 +4,12 @@ The aim of this project is to bring together reasonably functional version of ap
 
 The technology solution components include
 
-A full stack application (ReactJS, RazzleJS)
-A data respository (CouchDB, FireStore)
-A cache (Redis)
-An edge proxy
-An API GateWay.
-Platforms (Bare Metal, Docker, Kubernetes)
+- A full stack application (ReactJS, RazzleJS)
+- A data respository (CouchDB, FireStore)
+- A cache (Redis)
+- An edge proxy
+- An API GateWay.
+- Platforms (Bare Metal, Docker, Kubernetes)
 
 Note: Parts of the project are still being worked upon. 
 
