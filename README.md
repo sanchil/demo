@@ -1,4 +1,4 @@
-# Demo: A Portal for demo applications and their deployments on bare metal and cloud native (Kubernetes) platforms
+# Demo: A platform for demo applications and their deployments on bare metal and cloud native (Kubernetes) platforms
 
 The aim of this project is to bring together reasonably functional version of applications and string them up together on bare metal and cloud native environments. This project aims to demonstrate the wiring up and building pipelines between components.
 
@@ -7,8 +7,9 @@ The technology solution components include
 - A full stack application (ReactJS, RazzleJS)
 - A data respository (CouchDB, FireStore)
 - A cache (Redis)
-- An edge proxy
+- Edge proxies, Ingress Controllers and Load Balancers
 - An API GateWay.
+- A service mesh
 - Platforms (Bare Metal, Docker, Kubernetes)
 
 Note: Parts of the project are still being worked upon. 
