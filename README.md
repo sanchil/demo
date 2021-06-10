@@ -1,19 +1,5 @@
 # Demo: A Functional ReactJs Application Stack
 
-The aim of this project is to bring together reasonably functional version of applications and string them up together on bare metal and cloud native environments. This project aims to demonstrate the wiring up and building pipelines between components.
-
-The technology solution components include
-
-A full stack application (ReactJS, RazzleJS)
-A data respository (CouchDB, FireStore)
-A cache (Redis)
-An edge proxy
-An API GateWay.
-Platforms (Bare Metal, Docker, Kubernetes)
-
-Note: Parts of the project are still being worked upon. 
-
-
 This project contains the following stack
 
 ## Full Stack Application
@@ -21,7 +7,6 @@ This project contains the following stack
 - Server: RazzleJS
 - State Management (Redux, Saga, useHooks)
 - Identity Managemanagement ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
-
 
 
 ## Bare Metal Build
@@ -99,18 +84,3 @@ spec:
 status: {}
 
 ```
-
-## Data Repository
-- CouchDB
-- FireStore
-
-## Cache
-- Redis
-
-## Edge Proxy
-- Contour/Envoy Proxy
-- Nginx
-
-## API Gateway
-- Express-Gateway
-
