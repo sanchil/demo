@@ -35,7 +35,9 @@ This project contains the following stack
 ### Kubernetes pod
 
 
-Run the following kubernetes manifest to have a demo full stack application up and running. 
+Run the following kubernetes manifest to have a demo full stack application up and running. You can run this on any k8 cluster. Try deploying this on a local cluster from the following project
+
+[Hydra Cluster](https://github.com/sanchil/hydra_cluster)
 
 ```sh
 
