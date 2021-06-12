@@ -1,0 +1,420 @@
+# create firestore account
+# create a firestore db
+# install gcloud
+# create a serviceaccount and a key file
+
+# project details
+
+Project name:   nicedb
+Project ID:     nicedb314
+Project number: 85945956286
+
+KEY=AIzaSyC_vnEq_M-KsGi9bCfn-kohYYaaPeo2YNs
+
+# generate db sa and json key file
+
+gcloud iam service-accounts create nicejobsa
+gcloud projects add-iam-policy-binding nicedb314 --member="serviceAccount:nicejobsa@nicedb314.iam.gserviceaccount.com" --role="roles/owner"
+gcloud iam service-accounts keys create nicejob_db_key.json --iam-account=nicejobsa@nicedb314.iam.gserviceaccount.com
+
+Updated IAM policy for project [nicedb314].
+bindings:
+- members:
+  - serviceAccount:nicedb314@appspot.gserviceaccount.com
+  role: roles/editor
+- members:
+  - serviceAccount:service-85945956286@firebase-rules.iam.gserviceaccount.com
+  role: roles/firebaserules.system
+- members:
+  - serviceAccount:nicejobsa@nicedb314.iam.gserviceaccount.com
+  - user:sanchil.ca@gmail.com
+  role: roles/owner
+etag: BwXB8qWJ9qA=
+version: 1
+
+############## the service account file for validating api calls ###
+### store this in keys folder in the root of the app project ##########
+
+
+{
+  "type": "service_account",
+  "project_id": "nicedb314",
+  "private_key_id": "adae2658d6d534084c54229bac97dd6ef60af2ef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDKLQ2CXQKYONCt\nV88nGPqdOxVHT3kKeoLg1Krn6c/GsuCpWUO/ofNJW/KxQTC/1qRwrmll1BJgJ3F5\nKRX7Ulh8aTiucJyEvCevk68bRWHea6nO/cOZMmmDmTdjNzgFxD2GXLwuq71/zMPT\nvgyJOJfUidkRotQVJwIh+9RwhtWEn48jJ2oC3HVsOwzpqlmTaNI3SfkaJPGG7YEr\npW+sFyS+YM5WSkFgFLV5GDQkVpnLwrVT9l0orPlGeUtSITK2/3PRiVy2pIKe2QcD\nxEpZZAgKya5DPPI6/rPF1128LtIxpFTs5BlDHiF8Zref4/097/TFn/TePD4OLHjX\nNLM9SqonAgMBAAECggEAAInPK+YwgBRCpfuCXzHHVQzXuSligp8h4xRd4iEyvu4x\n//FvZz64pZzbkBJC3XfmVzB3smA2rk/ckvyDhPhKqQYksv40xHu1xVdo03NDV/LE\ncHsnfqxuMH4Dcj2u5gEIQufTTnKBnin+6Xzrjp/6c4PscooS8313mXyQq74IKoK7\nCA/xe9OAYi+HNye3YDB5C4qXXt+3u7BPRysQbzAt1EXmWF2iHliEAKbWkFF1b99E\nYp/hzqwL39/Nf/d5qNjK+GU/upa6GLH+KtyAcqrMTy1yRqGhrAJpOHKnv6xoOlQg\nqsH8pTgsScgGm7iEq92N8DYLd+KLRmV3tvGRSpRxAQKBgQD/v2lOcpvQQIRLGw8M\nfkh3rYKIUVZujFqldyaVNLgkIbeaUc+ulurYgjzglc9O37PBxwM2GoZy2uwMQu58\n1kmASOWY5LgYUyyviaa4cJ4N6JFdU9beuPXuUF62E1h+mIZGI4Ejx9d2evFB9VWH\n3KcCK67ky7OT8dQAgpJyfGBnAQKBgQDKYByqNJVtJfmnIZhSWwiJdoHiiCCCYfAQ\njR3gsp7LIo9bPP3ltG2R5jgq+8pnC0zsX9ALGhn8ok5ZEiswoyodzUT1NEfVgRbn\ndjMfO0z65ym2x+yZiT9yxxMj4Fs9PxshSv6bsFsyCoixdBcNY+NGkSoDtJ/nFKeH\nIZtOeWv5JwKBgQC4fq9LRmadL03AmL6cdqV0oJkgGf1ONrZV08Tjsmp8tk4rZ4V5\nH6o/koS0R56L+dlFm3n3l98SEFhk6Av/xt6zSuNHDwi3k5kS8SxytdtvkSz8tLS3\na5sO1q/cjcwzV3jWNFq/IzWOZVaSDJgtMMLSUA0VRNZBjh0wWQGo0Y0CAQKBgQCq\nsWhcE2AZoNcypb5hcFECCMfCt0icUFj4zN3vgRk4gtzhes84KPfmAIVNk/SC92AZ\nWzMRuiFDGe71Z8KwEl9apaFNJJyWM3yLHAJAjHcAhWuEtJoWYlH20HyPXRP307th\nWGzqClTRH1tuOVmcPK0c/yGt4HKiqKQo8SqahQWSLwKBgACgMhEPRAdog5oXmrUq\nlfzeiBKh+x+Q0Jx71pUZBMPROHdZonH43Kv/TS+TqdBSL0k6kbX3i2Ff5hcltKrt\nwfOP4GAcdP4/OP+1na/Pud7/635+ej/1nV7eNiI2m7PIsbWzQjwPxmV891sXexE/\nSpkOTdhmBOWrgdFBM81jm72/\n-----END PRIVATE KEY-----\n",
+  "client_email": "nicejobsa@nicedb314.iam.gserviceaccount.com",
+  "client_id": "108219420591209732324",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nicejobsa%40nicedb314.iam.gserviceaccount.com"
+}
+
+################# .env file #######################
+# note full path to the key file muste be stated here
+# you will only need to instantiante the firedb object without any parameters
+# like so 
+# const fireDBCon = new Firestore();
+
+GOOGLE_APPLICATION_CREDENTIALS=./keys/nicejob_key.json
+COLLECTION=Users
+NODE_ENV=dev
+KEY=AIzaSyC_vnEq_M-KsGi9bCfn-kohYYaaPeo2YNs
+####################################################
+
+
+# packages 
+npm i --save @google-cloud/firestore @google-cloud/connect-firestore
+npm i --save dotenv express-session memjs redis
+npm i --save-dev @babel/cli @babel/core @babel/node @babel/preset-env nodemon rimraf
+npm install nanoid 
+npm install --save-dev jest
+
+
+
+
+##################### Env ##################################
+
+For dev builds the NODE_ENV=dev in .env file.
+For prod builds all the environment variables are provided via docker's
+environment variables
+
+# .env
+GOOGLE_APPLICATION_CREDENTIALS='nicejob_key.json'
+USERS='Users'
+NODE_ENV='dev'
+
+
+##################### Babel #################################
+##### babel.config.js
+const presets = [
+    [
+        "@babel/preset-env"
+        ,
+        {
+            useBuiltIns: "usage",
+            debug: true,
+            modules: false
+        }
+    ]
+];
+
+const sourceType = "module";
+
+
+module.exports = { presets, sourceType };
+
+##### babel.config.json
+
+{
+    "presets": [
+        [
+            "@babel/preset-env"
+            ,
+            {
+               
+                "modules": false,
+                "targets":{"node":true}
+            }
+        ]
+    ],
+    
+    "sourceType":"module"
+    
+
+}
+
+##################### Jest ##################################
+
+# jest in package.json
+
+ "jest": {
+    "setupFiles": [
+      "./setJestEnvVars.js"
+    ]
+  }
+
+  # inside setJestEnvVars.js add the following line
+
+  process.env.GOOGLE_APPLICATION_CREDENTIALS='nicejob_key.json'
+
+
+########################## Docker ############################
+
+# docker network create --driver bridge redis-net
+
+# normal build within nicejob folder
+docker build -t sanchil/nicejob:1.5 .
+
+# from parent folder to build fireStoreAPI as well
+docker build -t sanchil/nicejob:1.5 -f nice/job/Dockerfile .
+docker image push sanchil/nicejob:1.5
+
+# run a node app container
+docker run --name nodeapp -dp 3000:3000 \
+  --network redis-net \
+  -e GOOGLE_APPLICATION_CREDENTIALS=nicejob_key.json \
+  -e USERS=Users \
+  -e NODE_ENV=prod \
+  -e REDIS_HOST=redis \
+  -e REDIS_PORT=6379 \
+  -e NICEAPP_CACHE_MAX_AGE=3600 \
+  -e NICEAPP_CACHE_ALLOCATED_MEM=64 \
+  -e CACHEONOFF=1 \
+  -e PORT=3000 \
+  sanchil/nicejob:1.6
+
+# build redis image
+docker build -t sanchil/cache:1.0 -f Dockerfile.redis .
+docker build -t sanchil/cache:1.0 -f nicejob/Dockerfile.redis .
+docker image push sanchil/cache:1.0
+
+# run a redis container
+docker run --name redis -dp 6380:6379 --network redis-net sanchil/cache:1.0
+
+
+##########################
+
+FROM node:14
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY dist ./
+COPY keys ./
+EXPOSE 3000
+CMD [ "node", "./bin/www" ]
+
+
+ docker rename CONTAINER NEW_NAME
+ docker network connect redis-net redis
+  
+########################## Git ###############################
+https://github.com/sanchil/nicejob.git
+
+git init
+git remote add origin https://github.com/sanchil/nicejob.git
+
+
+echo "# agt1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sanchil/agt1.git
+git push -u origin master
+
+git remote add origin https://github.com/sanchil/agt1.git
+git push -u origin master
+
+# undo last commit
+git reset --soft HEAD~1
+git remote show origin
+
+# routine
+
+git pull origin master
+git add *
+git commit -a
+git commit -m "first commit"
+git push -u origin master
+
+
+git clone https://github.com/sanchil/nicejob.git
+cd nicejob
+git checkout master
+
+git clone https://github.com/sanchil/fireStoreAPI.git
+cd fireStoreAPI
+git checkout master
+
+
+
+########################## curl ###############################
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/1 -d '{"selector":{"type":"HOME"}}'
+
+
+curl -X POST -H "Content-Type:application/json" \ 
+ http://localhost:3000/Users \
+ -d '{"first_name":"abc","last_name":"xyz","email":"AddEmail"}'
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/newone_zSCS -d '{"first_name":"abc","last_name":"xyz","email":"AddEmail"}'
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users -d '{"first_name":"Condor","last_name":"Eagle","email":"condor.eagle@albatross.com"}'
+
+curl -X GET -H "Content-Type:application/json" http://localhost:3000/Users/1 
+
+curl -X DELETE -H "Content-Type:application/json" http://localhost:3000/Users/newone_zSCS 
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/google.yahoo@aol.com_CyyR -d '{"first_name":"Owl","last_name":"SeaEagle","email":"owl.seaeagle@ostrich.com"}'
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users -d '{"first_name":"macaw","last_name":"cuckatoo","email":"macaw.cuckatoo@parakeet.com"}'
+
+############## redis caching ###########################
+
+sudo apt update
+sudo apt install redis-server
+
+
+############## google VM ###############################
+
+External IP: 35.215.59.104
+Internal IP: 10.162.0.6
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/1 -d '{"selector":{"type":"HOME"}}'
+
+
+curl -X POST -H "Content-Type:application/json" \ 
+ http://localhost:3000/Users \
+ -d '{"first_name":"abc","last_name":"xyz","email":"AddEmail"}'
+
+curl -X POST -H "Content-Type:application/json" http://35.215.59.104:3000/Users -d '{"first_name":"abc","last_name":"xyz","email":"AddEmail"}'
+
+curl -X GET -H "Content-Type:application/json" http://35.215.59.104:3000/Users/0
+
+curl -X GET -H "Content-Type:application/json" http://35.215.59.104:3000/Users/jackal.fox@hyena.com_C1UI 
+
+curl -X POST -H "Content-Type:application/json" http://35.215.59.104:3000/Users/jackal.fox@hyena.com_C1UI -d '{"first_name":"dog","last_name":"fox","email":"dog.fox@hyena.com"}'
+
+curl -Is http://www.google.com | head -n 1
+
+curl -Is http://35.215.59.104| head -n 1
+
+curl -X GET -H "Content-Type:application/json" http://35.215.59.104:3000/Users/0 
+curl -X GET -H "Content-Type:application/json" http://35.215.59.104:3000/Users/cheetah.sambhar@gaur.com_aj_T
+
+
+curl -X POST -H "Content-Type:application/json" http://35.215.59.104:3000/Users/superman.batman@robin.com_JaDi -d '{"first_name":"superdog","last_name":"foxybat","email":"superman.batman@robin.com"}'
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/superman.batman@robin.com_JaDi -d '{"first_name":"superdog","last_name":"foxybat","email":"superman.batman@robin.com"}'
+beluga.whaleshark@seal.com_j75h
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/beluga.whaleshark@seal.com_j75h -d '{"first_name":"Hippo","last_name":"Rhino","email":"hippo.rhino@giraffe.com"}'
+
+gcloud compute --project=nicedb314 firewall-rules create nodejs --description="ports for nodejs" --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:3000-8000
+
+http://35.215.59.104:3000 
+
+
+################ Health Check #################################
+
+gcloud compute instance-groups managed list-instances <instance-group>
+
+curl -X POST https://compute.googleapis.com/compute/v1/projects/project-id/regions/region/instanceGroupManagers/<instance-group>/listManagedInstances
+
+curl -X POST https://compute.googleapis.com/compute/v1/projects/<project-id>/regions/<region>/instanceGroupManagers/instance-group/listManagedInstances
+
+curl -X POST https://compute.googleapis.com/compute/v1/projects/nicedb/regions/<region>/instanceGroupManagers/<instance-group>/listManagedInstances
+
+
+{
+  "checkIntervalSec": 30.0,
+  "creationTimestamp": "2021-05-12T18:16:15.406-07:00",
+  "description": "",
+  "healthyThreshold": 3.0,
+  "id": "5026773470947689264",
+  "kind": "compute#healthCheck",
+  "logConfig": {
+    "enable": false
+  },
+  "name": "health",
+  "selfLink": "projects/nicedb314/global/healthChecks/health",
+  "tcpHealthCheck": {
+    "request": "PING",
+    "port": 80.0,
+    "response": "U again !!!",
+    "proxyHeader": "NONE"
+  },
+  "timeoutSec": 10.0,
+  "type": "TCP",
+  "unhealthyThreshold": 3.0
+}
+
+##################### gcloud commands
+
+# add api gateway service to project
+
+# enable app to validate api keys
+gcloud services enable API_ID-HASH.apigateway.PROJECT_ID.cloud.goog
+
+gcloud auth login
+
+gcloud config set project PROJECT_ID
+
+External IP: 35.215.59.104
+Internal IP: 10.162.0.6
+
+VM Instance               : nice-group-sdkq
+Managed Instance Template : nice-template
+Managed Instance Group    : nice-group
+
+Region: northamerica-northeast1 (Montreal) 
+Zone:   northamerica-northeast1-b
+northamerica-northeast1-b
+
+gcloud compute instance-groups managed list-instances nice-group
+gcloud compute instance-groups managed list-instances nice-group --zone="northamerica-northeast1-b"
+
+
+
+curl -X POST https://compute.googleapis.com/compute/v1/projects/<project-id>/regions/<region>/instanceGroupManagers/instance-group/listManagedInstances
+
+curl -X POST https://compute.googleapis.com/compute/v1/projects/nicedb/regions/northamerica-northeast1/instanceGroupManagers/nice-group/listManagedInstances
+
+
+# create a health check
+# https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs
+
+POST https://compute.googleapis.com/compute/v1/projects/project-id/global/healthChecks
+
+{
+ "name": "example-check",
+ "type": "http",
+ "port": 80,
+ "checkIntervalSec": 30,
+ "healthyThreshold": 1,
+ "timeoutSec": 10,
+ "unhealthyThreshold": 3
+}
+
+# open firewal ports to allow health check
+
+POST https://compute.googleapis.com/compute/v1/projects/[PROJECT_ID]/global/firewalls
+
+{
+ "name": "allow-health-check",
+ "network": "https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/global/networks/default",
+ "sourceRanges": [
+  "130.211.0.0/22",
+  "35.191.0.0/16"
+ ],
+ "allowed": [
+  {
+   "ports": [
+    "80"
+   ],
+   "IPProtocol": "tcp"
+  }
+ ]
+}
+
+# check status of unhealthy VM for regional 
+KEY=AIzaSyC_vnEq_M-KsGi9bCfn-kohYYaaPeo2YNs
+access_token=ya29.c.Kp8B_wfJan106sBYkkbRQC4szRAOPsCDDF5Jd52vTw33hBkWEChmSmZnUU2SoNzRqwm903TQgtwuWrGGEjrJry3jnLWkrwhNnU2Qc2fgAifHik8vz10VpcnxjvwMP9LIZPLT_ZasxTIDiXgvybunZetd7eGQz0Oyf6V-JZ4iAItmesudta8cEbEv7kVpH3LW5II6_AcrxmO1bWOiKovZ-5NM
+alias gcurl='curl -H "$(oauth2l header --json ~/credentials.json cloud-platform userinfo.email)" -H "Content-Type: application/json"'
+
+POST https://compute.googleapis.com/compute/v1/projects/<project-id>/regions/<region>/instanceGroupManagers/<instance-group>/listManagedInstances
+POST https://compute.googleapis.com/compute/v1/projects/nicedb314/regions/northamerica-northeast1/instanceGroupManagers/nice-group/listManagedInstances
+https://compute.googleapis.com/compute/v1/projects/nicedb314/regions/northamerica-northeast1/instanceGroupManagers/nice-group/listManagedInstances
+
+
+curl -H "Authorization: Bearer ya29.c.Kp8B_wfJan106sBYkkbRQC4szRAOPsCDDF5Jd52vTw33hBkWEChmSmZnUU2SoNzRqwm903TQgtwuWrGGEjrJry3jnLWkrwhNnU2Qc2fgAifHik8vz10VpcnxjvwMP9LIZPLT_ZasxTIDiXgvybunZetd7eGQz0Oyf6V-JZ4iAItmesudta8cEbEv7kVpH3LW5II6_AcrxmO1bWOiKovZ-5NM" \
+ -X POST https://compute.googleapis.com/compute/v1/projects/${keys.project_id}/regions/northamerica-northeast1/instanceGroupManagers/nice-group/listManagedInstances
+
+
+
+# check status of unhealthy VM for zonal
+
+POST https://compute.googleapis.com/compute/v1/projects/<project-id>/zones/<zone>/instanceGroupManagers/<instance-group>/listManagedInstances
+POST https://compute.googleapis.com/compute/v1/projects/nicedb314/zones/northamerica-northeast1-b/instanceGroupManagers/nice-group/listManagedInstances
+
+
+curl -H "Authorization: Bearer ya29.c.Kp8B_wfJan106sBYkkbRQC4szRAOPsCDDF5Jd52vTw33hBkWEChmSmZnUU2SoNzRqwm903TQgtwuWrGGEjrJry3jnLWkrwhNnU2Qc2fgAifHik8vz10VpcnxjvwMP9LIZPLT_ZasxTIDiXgvybunZetd7eGQz0Oyf6V-JZ4iAItmesudta8cEbEv7kVpH3LW5II6_AcrxmO1bWOiKovZ-5NM" \
+ -X POST https://compute.googleapis.com/compute/v1/projects/nicedb314/zones/northamerica-northeast1-b/instanceGroupManagers/nice-group/listManagedInstances

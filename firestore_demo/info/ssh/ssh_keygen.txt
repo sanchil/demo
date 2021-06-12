@@ -1,0 +1,14 @@
+# https://www.atlassian.com/git/tutorials/git-ssh
+
+# Generate ssh key
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+
+# start or ensure that the ssh-agent is up and running
+
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+
+
+# Add the new SSH key to the ssh-agent
+$ ssh-add -K /Users/you/.ssh/id_rsa

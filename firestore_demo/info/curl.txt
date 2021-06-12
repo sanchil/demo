@@ -1,0 +1,17 @@
+AIzaSyC_vnEq_M-KsGi9bCfn-kohYYaaPeo2YNs
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/1 -d '{"selector":{"type":"HOME"}}'
+
+
+curl -X POST -H "Content-Type:application/json" \ 
+ http://localhost:3000/Users \
+ -d '{"first_name":"abc","last_name":"xyz","email":"AddEmail"}'
+
+curl -X POST -H "Content-Type:application/json" http://localhost:3000/Users/newone_zSCS -d '{"first_name":"abc","last_name":"xyz","email":"AddEmail"}'
+
+curl -X GET -H "Content-Type:application/json" http://localhost:3000/Users/1 
+
+curl -X GET https://firebase.googleapis.com/v1beta1/availableProjects
+
+curl -X POST https://language.googleapis.com/v1/documents:analyzeEntities?key=AIzaSyC_vnEq_M-KsGi9bCfn-kohYYaaPeo2YNs
+

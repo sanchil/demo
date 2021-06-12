@@ -1,0 +1,5 @@
+FROM redis:6.2.3-alpine 
+RUN  echo "vm.overcommit_memory=1" >> /etc/sysctl.conf && \
+     su - root -c sysctl vm.overcommit_memory=1             
+EXPOSE 6379
+CMD [ "redis-server"]

@@ -1,0 +1,13 @@
+# https://cloud.google.com/sdk/gcloud/reference/auth/application-default
+
+# login to gcloud
+gcloud auth application-default login
+
+
+gcloud iam service-accounts create my-account
+gcloud iam service-accounts keys create key.json
+  --iam-account=my-account@my-project.iam.gserviceaccount.com
+export GOOGLE_APPLICATION_CREDENTIALS=key.json
+./my_application.sh
+
+gcloud auth application-default set-quota-project my-quota-project

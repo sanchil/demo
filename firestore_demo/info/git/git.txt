@@ -1,0 +1,129 @@
+https://github.com/sanchil/nicejob.git
+
+git init
+git remote add origin https://github.com/sanchil/nicejob.git
+
+
+echo "# agt1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sanchil/agt1.git
+git push -u origin master
+
+git remote add origin https://github.com/sanchil/agt1.git
+git push -u origin master
+
+# undo last commit
+git reset --soft HEAD~1
+git remote show origin
+
+# routine
+
+git pull origin master
+git add *
+git commit -a
+git commit -m "first commit"
+git push -u origin master
+
+
+git clone https://github.com/sanchil/nicejob.git
+cd nicejob
+git checkout master
+
+git clone https://github.com/sanchil/fireStoreAPI.git
+cd fireStoreAPI
+git checkout master
+
+################# git branches ##########################
+
+
+# show current git branch
+$ git branch --show-current
+$ git rev-parse --abbrev-ref HEAD
+
+# https://www.gitkraken.com/learn/git/problems/rename-git-branch
+
+# rename a git branch
+git branch -m <new-branch-name>
+
+# Can you rename a local Git branch if you don’t have the branch checked out?
+git branch -m <branch-name><new-branch-name>
+
+# How do you rename a remote Git branch?
+git push origin -u <new-branch-name>
+git push origin --set-upstream <new-branch-name>
+
+# delete old branch at remote
+git push origin -d <branch-name>
+
+
+# create a new branch on current features
+git branch feature-A
+
+# get a list of branches
+git branch
+
+# How do you checkout a new Git branch?
+
+git checkout feature-A
+
+# How do you create and checkout a Git branch at the same time?
+
+git checkout -b <branch name>
+
+# How do you switch between local Git branches?
+git branch
+git checkout <name-of-branch-you-want-to-switch-to>
+
+# How do you checkout a remote branch in Git?
+git branch -r
+
+git checkout <name_of_remote_branch>
+
+############# How do you merge a Git branch?
+# merge a Git branch with master
+$ git checkout master
+
+# merge feature branch to master
+git merge feature
+
+############# How do you set an upstream branch in Git?
+
+$ git push --set-upstream <remote> <branch>
+
+
+# https://nvie.com/posts/a-successful-git-branching-model/
+
+# Use Cases
+# Creating a feature branch
+git checkout -b newfeature develop
+
+# Incorporating a finished feature on develop
+# Switched to branch 'develop'
+$ git checkout develop
+
+# 
+$ git merge --no-ff myfeature
+Updating ea1b82a..05e9557
+(Summary of changes)
+
+#Deleted branch myfeature (was 05e9557).
+$ git branch -d myfeature
+
+# push changes to remote
+$ git push origin develop
+
+# use case
+
+Create a branch
+add commits
+
+
+# delete a remote branch
+git branch -a
+git branch -r
+git push origin --delete <remote branch>
+
+
+
