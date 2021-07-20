@@ -23,7 +23,7 @@ This project contains the following stack
 - State Management (Redux, Saga, useHooks)
 - Identity Managemanagement ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
 
-[Full Stack ReactJS](https://github.com/sanchil/hydra_cluster)
+[Full Stack ReactJS](../agt_demo/readme.md)
 
 ### Data Repository
 - CouchDB
