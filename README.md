@@ -51,10 +51,30 @@ $ npm run start:prod
 ```
 ### Docker Build
 
+The Dockerfile may be used to build an image of the application and also pushed to a docker repository.
+
 ```sh
 $ docker build -t <repo>/<docker_image_name> .
-$ docker run --name <name> -dp 3000 <repo>/<docker_image_name>
+
 ```
+Setup the environment to run the appliation as a container. First let us create separate network
+
+
+```sh
+$ docker network create --driver bridge redis-net
+```
+The docker app needs redis for session caching and so we run a redis service attached to the redis-net
+
+```sh
+$ docker run --name redis -dp 6379:6379 --network redis-net redis
+```
+
+Run the docker application on redis-net
+
+```sh
+$ docker run --name <name> -dp 3000 --network redis-net <repo>/<docker_image_name>
+```
+
 
 ### Kubernetes Build
 
