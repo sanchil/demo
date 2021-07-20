@@ -25,20 +25,29 @@ This project contains the following stack
 
 [Full Stack ReactJS](../agt_demo/README.md)
 
+
 ### Data Repository
 - CouchDB
 - FireStore
+[Data Repository]
 
 ### Cache
 - Redis
+
+[REDIS]
+
+[Full Stack ReactJS](../agt_demo/README.md)
 
 ### Edge Proxy
 - Contour/Envoy Proxy
 - Nginx
 
+[Edge Proxy]
+
 ### API Gateway
 - Express-Gateway
 
+[API Gateway]
 
 
 
