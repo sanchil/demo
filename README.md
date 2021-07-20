@@ -41,12 +41,20 @@ This project contains the following stack
 
 
 
-## Bare Metal Build
-
-
+### Bare Metal Build
+```sh
+$ git clone https://github.com/sanchil/demo.git
+$ cd demo/agt_basic
+$ npm install
+$ npm build
+$ npm run start:prod
+```
 ### Docker Build
 
-
+```sh
+$ docker build -t <repo>/<docker_image_name> .
+$ docker run --name <name> -dp 3000 <repo>/<docker_image_name>
+```
 
 ### Kubernetes Build
 
