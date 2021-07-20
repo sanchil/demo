@@ -55,8 +55,15 @@ The Dockerfile may be used to build an image of the application and also pushed 
 
 ```sh
 $ docker build -t <repo>/<docker_image_name> .
-
 ```
+
+for instance:
+
+```sh
+$ docker build -t app_image .
+```
+
+
 Setup the environment to run the appliation as a container. First let us create separate network
 
 
@@ -72,7 +79,12 @@ $ docker run --name redis -dp 6379:6379 --network redis-net redis
 Run the docker application on redis-net
 
 ```sh
-$ docker run --name <name> -dp 3000 --network redis-net <repo>/<docker_image_name>
+$ docker run --name <name> -dp 3000:3000 --network redis-net <repo>/<docker_image_name>
+```
+for instance:
+
+```sh
+$ docker run --name webapp -dp 3000:3000 --network redis-net app_image
 ```
 
 
