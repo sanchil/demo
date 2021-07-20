@@ -1,6 +1,6 @@
 # Demo: A Full Stack ReactJS application 
 
-The aim of this project is to bring together reasonably functional version of applications and string them up together on bare metal and cloud native environments. This project aims to demonstrate the wiring up and building pipelines between components.
+This is a demo stack of a reactjs application that uses redis for its session management.
 
 The technology solution components include
 
