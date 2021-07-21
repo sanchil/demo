@@ -12,7 +12,7 @@ Platform environment
 - Docker
 - Kubernetes
 
-Note: Parts of the project are still being worked upon. 
+Note: Parts of the project are still being worked upon. OpenId and OAuth have not been integrated yet. 
 
 
 This project contains the following stack
