@@ -1,43 +1,72 @@
-agt_demo: A full stack ReactJS application
+# agt_demo: A full stack ReactJS application
+
 This project contains the following stack
 
-Full Stack Application
-FrontEnd: ReactJS
-Server: RazzleJS
-State Management (Redux, Saga, useHooks)
-Identity Managemanagement ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
-Cache
-Redis
-Bare Metal Build
+### Full Stack Application
+- FrontEnd: ReactJS
+- Server: RazzleJS
+- State Management (Redux, Saga, useHooks)
+- Identity Managemanagement ( OAuth 2.0/OpenId, Passport - Google, FaceBook, Twitter and Amazon)
+
+### Cache
+- Redis
+
+### Bare Metal Build
+```sh
 $ git clone https://github.com/sanchil/demo.git
 $ cd demo/agt_basic
 $ npm install
 $ npm run build
 $ npm run start:prod
-Docker Build
+```
+### Docker Build
+
 The Dockerfile may be used to build an image of the application and also pushed to a docker repository.
 
+```sh
 $ docker build -t <repo>/<docker_image_name> .
+```
+
 for instance:
 
+```sh
 $ docker build -t app_image .
+```
 Setup the environment to run the appliation as a container. First let us create separate network
 
+
+```sh
 $ docker network create --driver bridge redis-net
+```
 The docker app needs redis for session caching and so we run a redis service attached to the redis-net
 
+```sh
 $ docker run --name redis -dp 6379:6379 --network redis-net redis
+```
+
 Run the docker application on redis-net
 
+```sh
 $ docker run --name <name> -dp 3000:3000 --network redis-net <repo>/<docker_image_name>
+```
 for instance:
 
+```sh
 $ docker run --name webapp -dp 3000:3000 --network redis-net app_image
-Kubernetes Build
-Kubernetes pod
+```
+
+
+### Kubernetes Build
+
+
+#### Kubernetes pod
+
+
 Run the following kubernetes manifest to have a demo full stack application up and running. You can run this on any k8 cluster. Try deploying this on a local cluster from the following project
 
-Hydra Cluster
+[Hydra Cluster](https://github.com/sanchil/hydra_cluster)
+
+```sh
 
 apiVersion: v1
 kind: Pod
@@ -95,6 +124,11 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
-Author
-Sandeep L Chiluveru
-[ sandeepnet@aol.com ]
+
+```
+
+## Author
+
+* **Sandeep L Chiluveru** 
+* [ sandeepnet@aol.com ]
+
