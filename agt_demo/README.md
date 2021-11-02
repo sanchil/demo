@@ -16,7 +16,7 @@ This project contains the following stack
 $ git clone https://github.com/sanchil/demo.git
 $ cd demo/agt_basic
 $ npm install
-$ npm build
+$ npm run build
 $ npm run start:prod
 ```
 ### Docker Build
